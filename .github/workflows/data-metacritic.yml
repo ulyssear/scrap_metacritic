@@ -6,33 +6,33 @@ on:
   #   - cron: '0 0 1 * *' # Every first day of the month
 
 jobs:
-  prebuild-data:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+  # prebuild-data:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
 
-      - name: Create branch
-        run: |
-          git checkout -b generic/data
+  #     - name: Create branch
+  #       run: |
+  #         git checkout -b generic/data
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
+  #     - name: Install Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
 
-      - name: Install
-        run: npm install
+  #     - name: Install
+  #       run: npm install
           
-      - name: Configure git user
-        run: |
-          git config --local user.email "noreply@arnaud.tech"
-          git config --local user.name "Github Actions"
+  #     - name: Configure git user
+  #       run: |
+  #         git config --local user.email "noreply@arnaud.tech"
+  #         git config --local user.name "Github Actions"
 
-      - name: Push
-        run: |
-          git add node_modules package-lock.json
-          git commit -m "Update libs"
-          git push -f origin generic/data
+  #     - name: Push
+  #       run: |
+  #         git add node_modules package-lock.json
+  #         git commit -m "Update libs"
+  #         git push -f origin generic/data
 
   data-metacritic:
     runs-on: ubuntu-latest
@@ -51,8 +51,9 @@ jobs:
         uses: browser-actions/setup-chrome@latest
         
       - uses: actions/checkout@v3
-        with:
-          ref: generic/data
+
+      - name: Install
+        run: npm ci
 
       - name: Run script
         run: |
@@ -62,7 +63,7 @@ jobs:
       - name: Check if branch exists
         id: check_branch
         run: |
-          git ls-remote --heads origin data/metacritic 2>&1
+          git ls-remote --heads origin data 2>&1
           if [ $? -eq 0 ]; then
             echo "::set-output name=branch_exists::true"
           else
@@ -76,34 +77,34 @@ jobs:
       - name: Remove branch
         if: steps.check_branch.outputs.branch_exists == 'true'
         run: |
-          git push origin --delete data/metacritic
+          git push origin --delete data
 
       # - name: Create branch
       #   # if: steps.check_branch.outputs.branch_exists == 'false'
       #   run: |
-      #     git checkout -b data/metacritic
+      #     git checkout -b data
       #     git config --local user.email "noreply@arnaud.tech"
       #     git config --local user.name "Github Actions"
       #     git ls-files | xargs git rm --cached -r --ignore-unmatch --quiet --force 2>/dev/null
-      #     git push origin data/metacritic
+      #     git push origin data
 
       # - name: Checkout branch
       #   if: steps.check_branch.outputs.branch_exists == 'true'
       #   run: |
-      #     git checkout data/metacritic
-      #     git pull origin data/metacritic
+      #     git checkout data
+      #     git pull origin data
 
       # - name: Commit
       #   run: |
       #     git add data
-      #     git commit -m "Update data/metacritic"
+      #     git commit -m "Update data"
 
       # - name: Push
-      #   run: git push --force origin data/metacritic
+      #   run: git push --force origin data
 
       # - name: Create artifact
       #   uses: actions/upload-artifact@v3
       #   with:
-      #     name: data-metacritic
-      #     path: data/metacritic
+      #     name: data
+      #     path: data
       #     retention-days: 31

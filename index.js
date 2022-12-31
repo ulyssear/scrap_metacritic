@@ -1,5 +1,6 @@
-import Scraper from "../index.js";
-import { $$eval, $eval } from "../helper.js";
+import {Scraper, ScraperHelper} from "@ulyssear/scraper";
+
+const { $eval, $$eval } = ScraperHelper;
 
 const URLS_CATEGORIES = {
   nintendo: {

@@ -1,5 +1,5 @@
 {
-  "name": "@ulyssear/scrap_metacritics",
+  "name": "@ulyssear/scrap_metacritic",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ulyssear/scrap_metacritics.git"
+    "url": "git+https://github.com/ulyssear/scrap_metacritic.git"
   },
   "author": "Ulysse ARNAUD",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ulyssear/scrap_metacritics/issues"
+    "url": "https://github.com/ulyssear/scrap_metacritic/issues"
   },
-  "homepage": "https://github.com/ulyssear/scrap_metacritics#readme",
+  "homepage": "https://github.com/ulyssear/scrap_metacritic#readme",
   "dependencies": {
-    "@ulyssear/scraper": "^0.0.1"
+    "@ulyssear/scraper": "^0.0.2"
   }
 }
