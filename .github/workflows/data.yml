@@ -1,4 +1,4 @@
-name: data-metacritic
+name: data
 
 on:
   workflow_dispatch:
@@ -34,7 +34,7 @@ jobs:
   #         git commit -m "Update libs"
   #         git push -f origin generic/data
 
-  data-metacritic:
+  data:
     runs-on: ubuntu-latest
     steps:
       - name: Install deno
