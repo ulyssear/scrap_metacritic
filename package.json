@@ -1,0 +1,22 @@
+{
+  "name": "@ulyssear/scrap_metacritics",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ulyssear/scrap_metacritics.git"
+  },
+  "author": "Ulysse ARNAUD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ulyssear/scrap_metacritics/issues"
+  },
+  "homepage": "https://github.com/ulyssear/scrap_metacritics#readme",
+  "dependencies": {
+    "@ulyssear/scraper": "^0.0.1"
+  }
+}
