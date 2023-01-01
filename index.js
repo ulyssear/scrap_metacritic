@@ -1,4 +1,6 @@
-import {Scraper, ScraperHelper} from "@ulyssear/scraper";
+import _scraper from "@ulyssear/scraper";
+
+const { Scraper, ScraperHelper } = _scraper;
 
 const { $eval, $$eval } = ScraperHelper;
 

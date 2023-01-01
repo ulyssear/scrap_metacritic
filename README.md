@@ -1,5 +1,3 @@
-
-
 # Metacritic bot scraper
 
 ## Installation
@@ -16,11 +14,13 @@ git clone <url-of-this-repository>
 npm install
 ```
 
-## Usage
+3. Fixed Puppeteer by launching the following command (powershell or bash, not cmd)
 
 ```bash
-node index.js --executable="chrome" --headless="true"
+./bin/init
 ```
+
+## Usage
 
 | Parameter | Description | Default value |
 | --- | --- | --- |
@@ -34,3 +34,28 @@ node index.js --executable="chrome" --headless="true"
 | headless | Headless mode | 'true' |
 | start | Index of first task | 0 |
 | end | Index of last task | -1 |
+
+
+Available browsers :
+
+| Name | Value |
+| --- | --- |
+| Chrome | 'chrome' |
+| Edge | 'edge' |
+| Firefox | 'firefox' |
+
+Available operating systems :
+
+| Name | Value |
+| --- | --- |
+| Windows | 'windows' |
+| Linux | 'linux' |
+| Mac | 'mac' |
+
+
+
+Example :
+
+```bash
+node index.js --executable="edge"
+```
