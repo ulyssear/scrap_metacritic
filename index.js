@@ -1,7 +1,5 @@
 import _scraper from "@ulyssear/scraper";
-
 const { Scraper, ScraperHelper } = _scraper;
-
 const { $eval, $$eval } = ScraperHelper;
 
 const URLS_CATEGORIES = {
