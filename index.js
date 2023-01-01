@@ -66,6 +66,7 @@ const args = Object.assign(
   }, {}),
 );
   
+console.log({args})
 
 const scraper = new Scraper(args);
 
